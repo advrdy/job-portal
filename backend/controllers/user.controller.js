@@ -7,6 +7,7 @@ dotenv.config({});
 export const register = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, password, role } = req.body;
+
     if (!fullname || !email || !phoneNumber || !password || !role) {
       return res
         .status(400)
@@ -37,6 +38,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password, role } = req.body;
+
     if (!email || !password || !role) {
       return res
         .status(400)
@@ -72,6 +74,7 @@ export const login = async (req, res) => {
       role: user.role,
       profile: user.profile,
     };
+
     return res
       .status(200)
       .cookie("token", token, {
@@ -100,12 +103,10 @@ export const updateProfile = async (req, res) => {
     const { fullname, email, phoneNumber, bio, skills } = req.body;
     let skillsArray;
 
-   
-    if(skills){
-       skillsArray = skills.split(",");
-
+    if (skills) {
+      skillsArray = skills.split(",");
     }
-    
+
     const userId = req.id;
     const file = req.file;
 
@@ -115,14 +116,14 @@ export const updateProfile = async (req, res) => {
         .status(400)
         .json({ message: "User does not exist", success: false });
     }
-    if(fullname)user.fullname = fullname;
-    if(email)user.email = email;
-    if(phoneNumber)user.phoneNumber = phoneNumber;
-    if(bio)user.profile.bio = bio;
-    if(skills)user.profile.skills = skillsArray;
+    if (fullname) user.fullname = fullname;
+    if (email) user.email = email;
+    if (phoneNumber) user.phoneNumber = phoneNumber;
+    if (bio) user.profile.bio = bio;
+    if (skills) user.profile.skills = skillsArray;
     await user.save();
 
-    user={
+    user = {
       _id: user._id,
       fullname: user.fullname,
       email: user.email,
