@@ -29,7 +29,7 @@ const AppliedJobTable = () => {
               <TableCell>Front End Dev</TableCell>
               <TableCell>Google</TableCell>
               <TableCell className="text-right">
-                <Badge className="bg-[#6A38C2] text-white font-bold">
+                <Badge className="bg-[#6A38C2] text-white font-bold hover:bg-[#5930a0] cursor-pointer">
                   Selected
                 </Badge>
               </TableCell>
