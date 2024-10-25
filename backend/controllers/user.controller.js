@@ -101,10 +101,11 @@ export const logout = async (req, res) => {
 export const updateProfile = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, bio, skills } = req.body;
+    console.log(fullname, email, phoneNumber, bio, skills);
     let skillsArray;
 
     if (skills) {
-      skillsArray = skills.split(",");
+      skillsArray = skills.split(" ");
     }
 
     const userId = req.id;
