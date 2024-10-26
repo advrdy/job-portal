@@ -1,8 +1,7 @@
-import "./App.css";
-import Home from "./components/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
+import Home from "./components/Home";
 import Jobs from "./components/Jobs";
 import Browse from "./components/Browse";
 import Profile from "./components/Profile";
@@ -26,6 +25,10 @@ const appRouter = createBrowserRouter([
     element: <Jobs />,
   },
   {
+    path: "/description/:id",
+    element: <JobDescription />,
+  },
+  {
     path: "/browse",
     element: <Browse />,
   },
@@ -33,17 +36,12 @@ const appRouter = createBrowserRouter([
     path: "/profile",
     element: <Profile />,
   },
-  {
-    path: "/description/:id",
-    element: <JobDescription />,
-  },
 ]);
-
 function App() {
   return (
-    <>
+    <div>
       <RouterProvider router={appRouter} />
-    </>
+    </div>
   );
 }
 

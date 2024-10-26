@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Badge } from "./ui/badge";
 
 const LatestJobCards = (props) => {
